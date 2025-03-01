@@ -1,5 +1,6 @@
 package com.Ashutosh.ashu.Controller;
 
+import com.Ashutosh.ashu.dto.UserDTO;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,5 +23,9 @@ public class HelloController {
     @GetMapping("/hello/param/{name}")
     public String sayHellowithParam(@PathVariable String name) {
         return "Hello " + name + " from BridgeLabz";
+    }
+    @PostMapping("/post")
+    public String sayHelloDTO(@RequestBody UserDTO user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
     }
 }
